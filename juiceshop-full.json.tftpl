@@ -29,6 +29,9 @@
                         "use": "${app_name}-analytics-tcp"
                     },
                     "snat": "auto",
+                    "profileDOS": {
+                        "use": "${app_name}-app-dos"
+                    },                    
                     "policyWAF": {
                         "use": "${app_name}-waf-policy"
                     },                    
