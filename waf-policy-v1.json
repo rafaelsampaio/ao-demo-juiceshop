@@ -1,0 +1,29 @@
+{
+  "$schema": "https://clouddocs.f5.com/products/waf-declarative-policy/_downloads/1ea282907775c0a30240d3d5da4c2708/schema_v16_1.json",
+  "policy": {
+    "name": "juiceshop-waf-policy",
+    "description": "Juice Shop WAF Policy v1",
+    "template": {
+      "name": "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
+    },
+    "enforcementMode": "transparent",
+    "applicationLanguage": "utf-8",
+    "caseInsensitive": true,
+    "general": {
+      "trustXff": true
+    },
+    "policy-builder": {
+      "autoApply": {
+        "frequency": "real-time"
+      },
+      "learningMode": "automatic"
+    },
+    "policy-builder-server-technologies": {
+      "enableServerTechnologiesDetection": true
+    },
+    "signature-settings": {
+      "signatureStaging": true
+    }
+  },
+  "modifications": []
+}

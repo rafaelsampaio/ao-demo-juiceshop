@@ -1,0 +1,120 @@
+{
+  "$schema": "https://clouddocs.f5.com/products/waf-declarative-policy/_downloads/1ea282907775c0a30240d3d5da4c2708/schema_v16_1.json",
+  "policy": {
+    "name": "juiceshop-waf-policy",
+    "description": "Juice Shop WAF Policy v2",
+    "template": {
+      "name": "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
+    },
+    "enforcementMode": "transparent",
+    "applicationLanguage": "utf-8",
+    "caseInsensitive": true,
+    "general": {
+      "trustXff": true
+    },
+    "policy-builder": {
+      "autoApply": {
+        "frequency": "real-time"
+      },
+      "learningMode": "automatic"
+    },
+    "policy-builder-server-technologies": {
+      "enableServerTechnologiesDetection": true
+    },
+    "signature-settings": {
+      "signatureStaging": true
+    },
+    "data-guard": {
+      "enabled": true,
+      "creditCardNumbers": true,
+      "lastCcnDigitsToExpose": 4,
+      "usSocialSecurityNumbers": true,
+      "lastSsnDigitsToExpose": 4,
+      "customPatterns": false,
+      "exceptionPatterns": false,
+      "fileContentDetection": false,
+      "maskData": true,
+      "enforcementMode": "ignore-urls-in-list",
+      "enforcementUrls": [
+        "/rest/languages"
+      ]
+    },
+    "ip-intelligence": {
+      "enabled": true,
+      "ipIntelligenceCategories": [
+        {
+          "category": "Cloud-based Services",
+          "alarm": true,
+          "block": false
+        },
+        {
+          "category": "Tor Proxies",
+          "alarm": true,
+          "block": true
+        },
+        {
+          "category": "Web Attacks",
+          "alarm": true,
+          "block": true
+        },
+        {
+          "category": "BotNets",
+          "alarm": true,
+          "block": true
+        },
+        {
+          "category": "Scanners",
+          "alarm": true,
+          "block": true
+        },
+        {
+          "category": "Denial of Service",
+          "alarm": true,
+          "block": true
+        },
+        {
+          "category": "Infected Sources",
+          "alarm": true,
+          "block": true
+        },
+        {
+          "category": "Anonymous Proxy",
+          "alarm": true,
+          "block": true
+        }
+      ]
+    },
+    "response-pages": [
+      {
+        "ajaxActionType": "alert-popup",
+        "ajaxEnabled": true,
+        "ajaxPopupMessage": "Not today, hacker! Your support ID is: <%TS.request.ID()%>",
+        "responsePageType": "ajax"
+      }
+    ],
+    "server-technologies": [
+      {
+        "serverTechnologyName": "AngularJS"
+      },
+      {
+        "serverTechnologyName": "Express.js"
+      },
+      {
+        "serverTechnologyName": "JavaScript"
+      },
+      {
+        "serverTechnologyName": "MongoDB"
+      },
+      {
+        "serverTechnologyName": "Node.js"
+      },
+      {
+        "serverTechnologyName": "SQLite"
+      },
+      {
+        "serverTechnologyName": "jQuery"
+      }
+    ]
+  },
+  "modifications": []
+}

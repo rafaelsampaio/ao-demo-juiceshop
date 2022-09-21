@@ -2,6 +2,6 @@ output "app-url" {
   value = "http://${var.app-address}"
 }
 
-output "terraform-ip" {
-  value = chomp(data.http.terraform-ip.response_body)
+output "as3-template" {
+  value = data.http.as3_template.response_body
 }
