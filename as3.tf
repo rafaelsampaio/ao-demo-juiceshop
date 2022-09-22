@@ -1,8 +1,3 @@
-data "http" "as3_template" {
-  url = "https://raw.githubusercontent.com/rafaelsampaio/ao-demo-juiceshop/main/juiceshop-basic.json.tftpl"
-  #url = "https://raw.githubusercontent.com/rafaelsampaio/ao-demo-juiceshop/main/juiceshop-full.json.tftpl"
-}
-
 locals {
   juiceshop-vars = {
     app_tenant    = "ecommerce"
@@ -22,7 +17,8 @@ locals {
     #network_dos_vectors = local.dos-network-vectors-settings
   }
 
-  juiceshop-as3 = templatefile(data.http.as3_template.response_body, local.juiceshop-vars)
+  juiceshop-as3 = templatefile("${path.module}/juiceshop-basic.json.tftpl", local.juiceshop-vars)
+  #juiceshop-as3 = templatefile("${path.module}/juiceshop-full.json.tftpl", local.juiceshop-vars)
 }
 
 resource "bigip_as3" "juiceshop" {
